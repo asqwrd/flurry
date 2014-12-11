@@ -11,6 +11,16 @@
   <section class="chart">
     <section>
       <figure id="chart" class="linechart" linechart linedata={{linedata}}><h1>Active & Total User Ratio</h1><svg></svg></figure>
+      <figure class="summary">
+        <table>
+        <thead><th>Date</th><th>Total Users</th><th>Active Users</th>
+          <tr ng-repeat="item in summaryArray">
+            <td>{{item.date}}</td>
+            <td>{{item.totalUsers}}</td>
+            <td>{{item.activeUsers}}</td>
+          </tr>
+        </table>
+      </figure>
     </section>
     <section class="extraData">
       <figure id="pie" class="piechart" piechart piedata={{piedata}}>

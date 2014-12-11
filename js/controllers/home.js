@@ -11,7 +11,7 @@ define(['./module'], function (controllers) {
         /* Manipulating the data from json output to match inputs for charts and tables*/
           var activeUsersData = data[0];
           var totalUsersData = data[1];
-          var totalUserArray = [],activeUserArray = [],ratio = [], activeAverage = 0,activeMax=0,totalAverage = 0,totalMax=0,activeDateMax =0,activeDateMin = 0;
+          var totalUserArray = [],activeUserArray = [],ratio = [],summaryArray=[], activeAverage = 0,activeMax=0,totalAverage = 0,totalMax=0,activeDateMax =0,activeDateMin = 0;
           activeUsersData.day.forEach(function(value){
             var date=new Date(value['@date']);
             date.setMinutes(0);
@@ -102,11 +102,15 @@ define(['./module'], function (controllers) {
                   activeMin = activeVal.y;
                   activeDateMin = activeVal.x;
                 }
+                summaryArray.push({"date":moment(new Date(activeVal.x)).format('MM/DD/YYYY'),'totalUsers':(""+totalVal.y).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"),'activeUsers':(""+activeVal.y).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")});
               }
             });
              
           
           });
+          
+          
+          $scope.summaryArray = summaryArray;
           
           //completing calculation of average values
           totalAverage = totalAverage/totalUserArray.length;
