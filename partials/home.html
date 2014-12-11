@@ -1,0 +1,50 @@
+<section class="content">
+  <section class="form">
+   <figure class="formWrapper">
+      <form>
+        <p style="z-index:1"><label>Start Date: </label><br><input id="start" class="date" datepicker type="text"  /></p>
+        <p style="z-index:1"><label>End Date: </label><br><input id="end" class="date" datepicker type="text" /></p>
+        <p><button ng-click="update()" class="updateButton">Update</button></p>
+      </form>
+    </figure>
+  </section>
+  <section class="chart">
+    <section>
+      <figure id="chart" class="linechart" linechart linedata={{linedata}}><h1>Active & Total User Ratio</h1><svg></svg></figure>
+    </section>
+    <section class="extraData">
+      <figure id="pie" class="piechart" piechart piedata={{piedata}}>
+        <svg></svg>
+        <figcaption class="labels">
+          <h1>Users</h1>
+          <h2 class="activeLabel">{{activeLabel}}</h2>
+          <h2 class="totalLabel">{{totalLabel}}</h2>
+        </figcaption>
+        <ul class="legend">
+          <li class="total"><span class="total"></span> Total Users</li>
+          <li class="active"> <span class="active"></span> Active Users</li>
+        </ul>
+      </figure>
+      <figure class="table">
+        <table>
+          <tr>
+            <td>Average number of Active Users</td>
+            <td>{{activeAverage}}</td>
+          </tr>
+          <tr>
+            <td>Average number of Total Users</td>
+            <td>{{totalAverage}}</td>
+          </tr>
+          <tr>
+            <td>Day with Most Active Users</td>
+            <td>{{activeDateMax}} ({{activeMax}})</td>
+          </tr>
+          <tr>
+            <td>Day with Least Active Users</td>
+            <td>{{activeDateMin}} ({{activeMin}})</td>
+          </tr>
+        </table>
+      </figure>
+    </section>
+  </section>
+</section>
