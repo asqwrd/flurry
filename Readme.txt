@@ -11,3 +11,6 @@ Javascript Frameworks and plugins:
 	-Require: https://github.com/jrburke/requirejs
 	
 Demo hosted at: http://ajibadesign.com/flurry
+
+Instructions:
+	Simply change the time range on the form to the left and click update to see data for various time ranges.
